@@ -17,4 +17,5 @@ public class HelloRestController {
     public HelloModel greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
         return new HelloModel(counter.incrementAndGet(), String.format(template, name));
     }
+
 }
