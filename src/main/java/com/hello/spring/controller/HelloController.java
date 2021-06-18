@@ -1,17 +1,26 @@
 package com.hello.spring.controller;
 
+import com.hello.spring.model.Hero;
+import com.hello.spring.model.Team;
 import com.hello.spring.model.User;
 import com.hello.spring.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 @Controller
 public class HelloController {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public HelloController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @GetMapping("/")
     public String index(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
@@ -34,17 +43,18 @@ public class HelloController {
     @GetMapping("/test")
     public String test() {
         User tmp = new User();
+        Team tmpt = new Team();
+        Hero tmph = new Hero();
+        List<Hero> tmpset = new ArrayList<>();
+        tmpset.add(tmph);
+        tmpset.add(tmph);
+        tmpset.add(tmph);
+        tmpset.add(tmph);
         tmp.setUsername("Hello");
-        tmp.setPassword("pass");
-        tmp.setAvatar("avatar");
-        tmp.setEmail("mail");
-        tmp.setSummoner("sum");
-        tmp.setTeamId(5);
-        tmp.setWallpaper("wallpaper");
-        userRepository.save(tmp);
+        tmpt.setHeroes(tmpset);
+        tmp.setTeam(tmpt);
 
-        System.out.println(userRepository.findAll().get(0).getAvatar());
-//      System.out.println(userRepository.findAll());
+        userRepository.save(tmp);
         return "hello";
     }
 

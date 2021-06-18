@@ -4,59 +4,29 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name="Users")
+@Table(name="users")
 public class User {
-    private int id;
-    private String username;
-    private String password;
-    private String email;
+    private Integer id;
     private String avatar;
-    private String wallpaper;
+    private String email;
+    private String password;
     private String summoner;
-    private int teamId;
+    private Team team;
+    private String username;
+    private String wallpaper;
 
     @Id
-    @Column(name = "Id")
-    public int getId() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "Username")
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    @Basic
-    @Column(name = "Password")
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Basic
-    @Column(name = "Email")
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Basic
-    @Column(name = "Avatar")
+    @Basic @Column(name = "avatar")
     public String getAvatar() {
         return avatar;
     }
@@ -65,18 +35,25 @@ public class User {
         this.avatar = avatar;
     }
 
-    @Basic
-    @Column(name = "Wallpaper")
-    public String getWallpaper() {
-        return wallpaper;
+    @Basic @Column(name = "email")
+    public String getEmail() {
+        return email;
     }
 
-    public void setWallpaper(String wallpaper) {
-        this.wallpaper = wallpaper;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    @Basic
-    @Column(name = "Summoner")
+    @Basic @Column(name = "password")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Basic @Column(name = "summoner")
     public String getSummoner() {
         return summoner;
     }
@@ -85,14 +62,31 @@ public class User {
         this.summoner = summoner;
     }
 
-    @Basic
-    @Column(name = "Team_id")
-    public int getTeamId() {
-        return teamId;
+    @OneToOne(cascade = CascadeType.ALL) @JoinColumn(name = "team_id",referencedColumnName = "id")
+    public Team getTeam() {
+        return team;
     }
 
-    public void setTeamId(int teamId) {
-        this.teamId = teamId;
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    @Basic @Column(name = "username")
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Basic @Column(name = "wallpaper")
+    public String getWallpaper() {
+        return wallpaper;
+    }
+
+    public void setWallpaper(String wallpaper) {
+        this.wallpaper = wallpaper;
     }
 
     @Override
@@ -100,11 +94,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && teamId == user.teamId && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(email, user.email) && Objects.equals(avatar, user.avatar) && Objects.equals(wallpaper, user.wallpaper) && Objects.equals(summoner, user.summoner);
+        return Objects.equals(id, user.id) && Objects.equals(avatar, user.avatar) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(summoner, user.summoner) && Objects.equals(team, user.team) && Objects.equals(username, user.username) && Objects.equals(wallpaper, user.wallpaper);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, email, avatar, wallpaper, summoner, teamId);
+        return Objects.hash(id, avatar, email, password, summoner, team, username, wallpaper);
     }
 }
