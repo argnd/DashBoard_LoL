@@ -3,8 +3,7 @@ package com.hello.spring.model;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
-@Table(name="Users")
+@Entity @Table(name="Users")
 public class User {
     private int id;
     private String username;
@@ -15,8 +14,7 @@ public class User {
     private String summoner;
     private int teamId;
 
-    @Id
-    @Column(name = "Id")
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE) //allows object id pre allocation
     public int getId() {
         return id;
     }
@@ -25,8 +23,7 @@ public class User {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "Username")
+    @Basic @Column(name = "Username")
     public String getUsername() {
         return username;
     }
@@ -35,8 +32,7 @@ public class User {
         this.username = username;
     }
 
-    @Basic
-    @Column(name = "Password")
+    @Basic @Column(name = "Password")
     public String getPassword() {
         return password;
     }
@@ -45,8 +41,7 @@ public class User {
         this.password = password;
     }
 
-    @Basic
-    @Column(name = "Email")
+    @Basic @Column(name = "Email")
     public String getEmail() {
         return email;
     }
@@ -55,8 +50,7 @@ public class User {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "Avatar")
+    @Basic @Column(name = "Avatar")
     public String getAvatar() {
         return avatar;
     }
@@ -65,8 +59,7 @@ public class User {
         this.avatar = avatar;
     }
 
-    @Basic
-    @Column(name = "Wallpaper")
+    @Basic @Column(name = "Wallpaper")
     public String getWallpaper() {
         return wallpaper;
     }
@@ -75,8 +68,7 @@ public class User {
         this.wallpaper = wallpaper;
     }
 
-    @Basic
-    @Column(name = "Summoner")
+    @Basic @Column(name = "Summoner")
     public String getSummoner() {
         return summoner;
     }
@@ -85,8 +77,7 @@ public class User {
         this.summoner = summoner;
     }
 
-    @Basic
-    @Column(name = "Team_id")
+    @Basic @Column(name = "Team_id")
     public int getTeamId() {
         return teamId;
     }
