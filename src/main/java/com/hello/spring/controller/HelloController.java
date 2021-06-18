@@ -1,13 +1,16 @@
 package com.hello.spring.controller;
 
+import com.hello.spring.model.Hero;
+import com.hello.spring.model.Team;
 import com.hello.spring.model.User;
 import com.hello.spring.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 @Controller
@@ -37,18 +40,21 @@ public class HelloController {
         return "hello";
     }
 
-    @GetMapping("/test") @Transactional
+    @GetMapping("/test")
     public String test() {
         User tmp = new User();
+        Team tmpt = new Team();
+        Hero tmph = new Hero();
+        List<Hero> tmpset = new ArrayList<>();
+        tmpset.add(tmph);
+        tmpset.add(tmph);
+        tmpset.add(tmph);
+        tmpset.add(tmph);
         tmp.setUsername("Hello");
-//        tmp.setPassword("pass");
-//        tmp.setAvatar("avatar");
-//        tmp.setEmail("mail");
-//        tmp.setSummoner("sum");
-        tmp.setTeamId(5);
-        tmp.setWallpaper("wallpaper");
+        tmpt.setHeroes(tmpset);
+        tmp.setTeam(tmpt);
+
         userRepository.save(tmp);
-        System.out.println(tmp.getId()); //pre allocated before save
         return "hello";
     }
 
