@@ -34,8 +34,13 @@ public class HelloController {
     @GetMapping("/test")
     public String test() {
         User tmp = new User();
-        tmp.setPassword("fdsfdsf");
-        tmp.setAvatar("zexdsq");
+        tmp.setUsername("Hello");
+        tmp.setPassword("pass");
+        tmp.setAvatar("avatar");
+        tmp.setEmail("mail");
+        tmp.setSummoner("sum");
+        tmp.setTeamId(5);
+        tmp.setWallpaper("wallpaper");
         userRepository.save(tmp);
 
         System.out.println(userRepository.findAll().get(0).getAvatar());

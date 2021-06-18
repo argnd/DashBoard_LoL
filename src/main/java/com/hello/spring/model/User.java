@@ -4,9 +4,8 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name="Users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
     private String password;
@@ -16,16 +15,18 @@ public class User {
     private String summoner;
     private int teamId;
 
-
-
+    @Id
+    @Column(name = "Id")
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
 
-
+    @Basic
+    @Column(name = "Username")
     public String getUsername() {
         return username;
     }
@@ -34,6 +35,8 @@ public class User {
         this.username = username;
     }
 
+    @Basic
+    @Column(name = "Password")
     public String getPassword() {
         return password;
     }
@@ -42,6 +45,8 @@ public class User {
         this.password = password;
     }
 
+    @Basic
+    @Column(name = "Email")
     public String getEmail() {
         return email;
     }
@@ -50,6 +55,8 @@ public class User {
         this.email = email;
     }
 
+    @Basic
+    @Column(name = "Avatar")
     public String getAvatar() {
         return avatar;
     }
@@ -58,6 +65,8 @@ public class User {
         this.avatar = avatar;
     }
 
+    @Basic
+    @Column(name = "Wallpaper")
     public String getWallpaper() {
         return wallpaper;
     }
@@ -66,6 +75,8 @@ public class User {
         this.wallpaper = wallpaper;
     }
 
+    @Basic
+    @Column(name = "Summoner")
     public String getSummoner() {
         return summoner;
     }
@@ -74,6 +85,8 @@ public class User {
         this.summoner = summoner;
     }
 
+    @Basic
+    @Column(name = "Team_id")
     public int getTeamId() {
         return teamId;
     }
@@ -86,8 +99,8 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User User = (User) o;
-        return id == User.id && teamId == User.teamId && Objects.equals(username, User.username) && Objects.equals(password, User.password) && Objects.equals(email, User.email) && Objects.equals(avatar, User.avatar) && Objects.equals(wallpaper, User.wallpaper) && Objects.equals(summoner, User.summoner);
+        User user = (User) o;
+        return id == user.id && teamId == user.teamId && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(email, user.email) && Objects.equals(avatar, user.avatar) && Objects.equals(wallpaper, user.wallpaper) && Objects.equals(summoner, user.summoner);
     }
 
     @Override
