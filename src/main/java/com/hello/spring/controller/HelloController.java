@@ -43,18 +43,28 @@ public class HelloController {
     @GetMapping("/test")
     public String test() {
         User tmp = new User();
+        User tmp2 = new User();
         Team tmpt = new Team();
+        Team tmpt2 = new Team();
         Hero tmph = new Hero();
         List<Hero> tmpset = new ArrayList<>();
+        List<Hero> tmpset2 = new ArrayList<>();
         tmpset.add(tmph);
         tmpset.add(tmph);
         tmpset.add(tmph);
         tmpset.add(tmph);
+        tmpset2.add(tmph);
+        tmpset2.add(tmph);
+        tmpset2.add(tmph);
+        tmpset2.add(tmph);
         tmp.setUsername("Hello");
         tmpt.setHeroes(tmpset);
+        tmpt2.setHeroes(tmpset2);
         tmp.setTeam(tmpt);
-
+        tmp2.setTeam(tmpt2);
         userRepository.save(tmp);
+        userRepository.save(tmp2);
+        userRepository.delete(tmp);
         return "hello";
     }
 
