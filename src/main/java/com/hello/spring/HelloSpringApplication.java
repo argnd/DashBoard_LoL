@@ -1,19 +1,14 @@
 package com.hello.spring;
 
-import com.hello.spring.model.Hero;
-import com.hello.spring.model.Team;
-import com.hello.spring.model.User;
 import com.hello.spring.repository.HeroRepository;
 import com.hello.spring.repository.TeamRepository;
 import com.hello.spring.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @SpringBootApplication
 public class HelloSpringApplication {
