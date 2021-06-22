@@ -1,5 +1,7 @@
 package com.hello.spring.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -16,7 +18,11 @@ public class User {
     private String wallpaper;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usergen")
+    @SequenceGenerator(
+            name = "usergen",
+            allocationSize = 1
+    )
     @Column(name = "id")
     public Integer getId() {
         return id;
@@ -62,7 +68,9 @@ public class User {
         this.summoner = summoner;
     }
 
-    @OneToOne(cascade = CascadeType.ALL) @JoinColumn(name = "team_id",referencedColumnName = "id")
+    @OneToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name = "team_id",referencedColumnName = "id")
+    @JsonManagedReference
     public Team getTeam() {
         return team;
     }
@@ -87,6 +95,20 @@ public class User {
 
     public void setWallpaper(String wallpaper) {
         this.wallpaper = wallpaper;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", avatar='" + avatar + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", summoner='" + summoner + '\'' +
+                ", team=" + team +
+                ", username='" + username + '\'' +
+                ", wallpaper='" + wallpaper + '\'' +
+                '}';
     }
 
     @Override

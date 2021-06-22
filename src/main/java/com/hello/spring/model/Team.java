@@ -1,5 +1,8 @@
 package com.hello.spring.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,7 +15,11 @@ public class Team {
     private List<Hero> heroes;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "teamgen")
+    @SequenceGenerator(
+            name = "teamgen",
+            allocationSize = 1
+    )
     @Column(name = "id")
     public Integer getId() {
         return id;
@@ -23,6 +30,7 @@ public class Team {
     }
 
     @OneToOne(mappedBy = "team")
+    @JsonBackReference
     public User getUser() {
         return user;
     }
@@ -44,4 +52,12 @@ public class Team {
         this.heroes = heroes;
     }
 
+    @Override
+    public String toString() {
+        return "Team{" +
+                "id=" + id +
+                ", user=" + user +
+                ", heroes=" + heroes +
+                '}';
+    }
 }

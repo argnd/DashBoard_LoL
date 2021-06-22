@@ -1,9 +1,13 @@
 package com.hello.spring.model;
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "heroes", schema = "dashboard")
@@ -16,7 +20,11 @@ public class Hero {
     private List<Team> teams;
 
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "herogen")
+    @SequenceGenerator(
+            name = "herogen",
+            allocationSize = 1
+    )
     public Integer getId() {
         return id;
     }
@@ -61,13 +69,26 @@ public class Hero {
         this.tbd = tbd;
     }
 
-    @ManyToMany(mappedBy = "heroes", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "heroes")
+    @JsonIgnore
     public List<Team> getTeams() {
         return teams;
     }
 
     public void setTeams(List<Team> teams) {
         this.teams = teams;
+    }
+
+    @Override
+    public String toString() {
+        return "Hero{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", picture='" + picture + '\'' +
+                ", charm=" + charm +
+                ", tbd=" + tbd +
+                ", teams=" + teams +
+                '}';
     }
 
     @Override
@@ -82,4 +103,5 @@ public class Hero {
     public int hashCode() {
         return Objects.hash(id, name, picture, charm, tbd);
     }
+
 }
