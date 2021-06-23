@@ -1,11 +1,6 @@
 package com.hello.spring;
 
-import com.hello.spring.model.Hero;
-import com.hello.spring.model.Team;
-import com.hello.spring.model.User;
-import com.hello.spring.repository.HeroRepository;
-import com.hello.spring.repository.TeamRepository;
-import com.hello.spring.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.CommandLineRunner;
@@ -19,16 +14,16 @@ import java.util.List;
 @SpringBootApplication
 public class HelloSpringApplication implements CommandLineRunner {
 
-    private final UserRepository userRepository;
-    private final TeamRepository teamRepository;
-    private final HeroRepository heroRepository;
-
-    @Autowired
-    public HelloSpringApplication(UserRepository userRepository, TeamRepository teamRepository, HeroRepository heroRepository) {
-        this.userRepository = userRepository;
-        this.teamRepository = teamRepository;
-        this.heroRepository = heroRepository;
-    }
+//    private final UserRepository userRepository;
+//    private final TeamRepository teamRepository;
+//    private final HeroRepository heroRepository;
+//
+//    @Autowired
+//    public HelloSpringApplication(UserRepository userRepository, TeamRepository teamRepository, HeroRepository heroRepository) {
+//        this.userRepository = userRepository;
+//        this.teamRepository = teamRepository;
+//        this.heroRepository = heroRepository;
+//    }
 
     public static void main(String[] args) {
         SpringApplication.run(HelloSpringApplication.class, args);
