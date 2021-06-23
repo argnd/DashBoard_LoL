@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Team Home </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link  th:replace="fragments/header :: bootstrap" rel="stylesheet" href="">
 </head>
 <body>
+<header th:replace="fragments/header :: header"> </header>
+<div class="container">
+    <h1 class="text-center">Gérer votre équipe</h1>
+</div>
+<footer th:replace="fragments/footer :: footer"> </footer>
 
 </body>
 </html>
