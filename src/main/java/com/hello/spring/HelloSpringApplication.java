@@ -1,6 +1,8 @@
 package com.hello.spring;
 
 
+import com.hello.spring.model.Hero;
+import com.hello.spring.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.CommandLineRunner;
