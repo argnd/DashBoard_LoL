@@ -8,25 +8,16 @@ import com.hello.spring.repository.TeamRepository;
 import com.hello.spring.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class populatedb implements CommandLineRunner {
+public class populatedb {
 
-    private final HeroRepository heroRepository;
-    private final TeamRepository teamRepository;
-    private final UserRepository userRepository;
 
-        @Autowired
-    public populatedb(HeroRepository heroRepository, TeamRepository teamRepository, UserRepository userRepository) {
-        this.heroRepository = heroRepository;
-        this.teamRepository = teamRepository;
-        this.userRepository = userRepository;
-    }
 
-    @Override
-    public void run(String... args) throws Exception {
+    public static void populate(UserRepository userRepository, TeamRepository teamRepository, HeroRepository heroRepository) {
         //CREATE USER
         User User = new User();
         User.setAvatar("LIEN VERS MON AVATAR");
@@ -79,6 +70,7 @@ public class populatedb implements CommandLineRunner {
         //Affecter la team au User
         User.setTeam(team);
         //Sauvegarder le User
+        userRepository.save(User);
         userRepository.save(User);
     }
 

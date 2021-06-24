@@ -66,11 +66,11 @@ public class Hero {
         this.tbd = tbd;
     }
 
-    @ManyToMany(mappedBy = "heroes")
-    @JsonIgnore
-    public List<Team> getTeams() {
-        return teams;
-    }
+//    @ManyToMany(mappedBy = "heroes")
+//    @JsonIgnore
+//    public List<Team> getTeams() {
+//        return teams;
+//    }
 
     public void setTeams(List<Team> teams) {
         this.teams = teams;
