@@ -6,16 +6,22 @@
   <link  th:replace="fragments/header :: bootstrap" rel="stylesheet" href="">
 </head>
 <body>
-<header th:replace="fragments/header :: header"> </header>
 <div class="container">
   <div class="row">
     <div class="col-md-6">
       <h2 class="h1-responsive font-weight-bold text-center my-4">Bienvenu sur LoL DashBoard</h2>
-      <p th:text="${session.name}" ></p>
+            <form th:action="@{/home}" method="post" class='bd-example'>
+            <div class="mb-3">
+              <label for='name' class="form-label"> Nom User: </label>
+              <input type='text' th:value="noobmaster_420" class="form-control" name='name' id='name' required>
+            </div>
+            <div class='form'>
+              <input type='submit' class="btn btn-primary" value='submit'>
+            </div>
+            </form>
     </div>
   </div>
 </div>
-<footer th:replace="fragments/footer :: footer"> </footer>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
