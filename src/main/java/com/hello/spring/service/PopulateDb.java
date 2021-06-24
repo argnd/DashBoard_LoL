@@ -1,4 +1,4 @@
-package com.hello.spring.populatedb;
+package com.hello.spring.service;
 
 import com.hello.spring.model.Hero;
 import com.hello.spring.model.Team;
@@ -7,24 +7,35 @@ import com.hello.spring.repository.HeroRepository;
 import com.hello.spring.repository.TeamRepository;
 import com.hello.spring.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class populatedb {
+@Service
+public class PopulateDb {
 
+    private final UserRepository userRepository;
+    private final TeamRepository teamRepository;
+    private final HeroRepository heroRepository;
 
+    @Autowired
+    public PopulateDb(UserRepository userRepository, TeamRepository teamRepository, HeroRepository heroRepository) {
+        this.userRepository = userRepository;
+        this.teamRepository = teamRepository;
+        this.heroRepository = heroRepository;
+    }
 
-    public static void populate(UserRepository userRepository, TeamRepository teamRepository, HeroRepository heroRepository) {
+    public User populate(String username) {
         //CREATE USER
-        User User = new User();
-        User.setAvatar("LIEN VERS MON AVATAR");
-        User.setUsername("MON NOM");
-        User.setPassword("hunter2");
-        User.setSummoner("Kez37");
-        User.setWallpaper("LIEN VERS MON FOND ECRAN");
+        User user = new User();
+        user.setAvatar("LIEN VERS MON AVATAR");
+        user.setEmail("Hello@world.com");
+        user.setUsername("noobmaster_420");
+        user.setPassword("hunter2");
+        user.setSummoner("Kez37");
+        user.setWallpaper("LIEN VERS MON FOND ECRAN");
 
         //CREATE HEROES
         Hero tmph = new Hero();
@@ -67,11 +78,11 @@ public class populatedb {
         tmpset.add(tmph4);
         team.setHeroes(tmpset);
 
-        //Affecter la team au User
-        User.setTeam(team);
-        //Sauvegarder le User
-        userRepository.save(User);
-        userRepository.save(User);
+        //Affecter la team au user
+        user.setTeam(team);
+        //Sauvegarder le user
+        userRepository.save(user);
+        return user;
     }
 
 }

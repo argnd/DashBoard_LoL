@@ -8,6 +8,13 @@ public class FightController {
 
     @GetMapping("/combat")
     public String getFight() {
+
+
+
         return "layouts/fight/fighthome";
     }
+
+
+
+
 }
