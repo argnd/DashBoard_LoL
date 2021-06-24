@@ -9,6 +9,16 @@
 <header th:replace="fragments/header :: header"> </header>
 <div class="container">
     <h1 class="text-center">Gérer votre équipe</h1>
+
+    <tr th:each="hero: ${session.user.team.heroes}">
+        <td th:text="${hero.id}" />
+        <td th:text="${hero.name}" />
+    </tr>
+
+
+
+
+
 </div>
 <footer th:replace="fragments/footer :: footer"> </footer>
 
