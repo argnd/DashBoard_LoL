@@ -9,6 +9,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+    open-in-view: false
   datasource:
     url: jdbc:mysql://${Dashboard:localhost}:3306/Dashboard
     username: root
