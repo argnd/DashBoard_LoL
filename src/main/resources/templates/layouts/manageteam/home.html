@@ -7,19 +7,44 @@
 </head>
 <body>
 <header th:replace="fragments/header :: header"> </header>
-<div class="container">
-    <h1 class="text-center">Gérer votre équipe</h1>
-
-    <tr th:each="hero: ${session.user.team.heroes}">
-        <td th:text="${hero.id}" />
-        <td th:text="${hero.name}" />
-    </tr>
-
-
-
-
-
-</div>
+    <div class="container">
+        <h1 class="text-center">Gérer votre équipe</h1>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item mt-5 text-center"><a href="">Ajouter un héros</a></li>
+                        <li class="list-group-item mt-5 text-center"><a href="">Supprimer un héros</a></li>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="border border-light">
+                            <h5 class="text-center">Mon équipe</h5>
+                            <div class="d-flex">
+                            <ul class="list-group list-group-horizontal-sm mx-auto mb-5 justify-content-center">
+                                <li class="list-group-item">Héro 1</li>
+                                <li class="list-group-item">Héro 2</li>
+                                <li class="list-group-item">Héro 3</li>
+                                <li class="list-group-item">Héro 4</li>
+                                <li class="list-group-item">Héro 5</li>
+                                <li class="list-group-item">Total Charme</li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="card ml-3" style="width: 10rem;" th:each="hero: ${session.user.team.heroes}">
+                            <img class="card-img-top" src="https://picsum.photos/50/50" alt="Card image cap">
+                            <div class="card-body">
+                                <p th:text="${hero.id}"></p>
+                                <h5 class="card-title" th:text="${hero.name}" >Card title</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <footer th:replace="fragments/footer :: footer"> </footer>
 
 </body>
