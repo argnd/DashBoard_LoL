@@ -12,7 +12,6 @@ public class Hero {
     private Integer charm;
     private Integer tbd;
 
-
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "herogen")
     @SequenceGenerator(
             name = "herogen",

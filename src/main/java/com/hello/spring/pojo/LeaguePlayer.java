@@ -1,4 +1,4 @@
-package com.hello.spring.beans;
+package com.hello.spring.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -13,7 +13,6 @@ public class LeaguePlayer {
     private double profileIconId;
     private double revisionDate;
     private double summonerLevel;
-
 
     public String getId() {
         return id;
