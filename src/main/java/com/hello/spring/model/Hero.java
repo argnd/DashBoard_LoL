@@ -1,9 +1,6 @@
 package com.hello.spring.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,7 +11,6 @@ public class Hero {
     private String picture;
     private Integer charm;
     private Integer tbd;
-//    private List<Team> teams;
 
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "herogen")
@@ -66,16 +62,6 @@ public class Hero {
         this.tbd = tbd;
     }
 
-//    @ManyToMany(mappedBy = "heroes")
-//    @JsonIgnore
-//    public List<Team> getTeams() {
-//        return teams;
-//    }
-
-    public void setTeams(List<Team> teams) {
-        this.teams = teams;
-    }
-
     @Override
     public String toString() {
         return "Hero{" +
@@ -84,7 +70,6 @@ public class Hero {
                 ", picture='" + picture + '\'' +
                 ", charm=" + charm +
                 ", tbd=" + tbd +
-                ", teams=" + teams +
                 '}';
     }
 
