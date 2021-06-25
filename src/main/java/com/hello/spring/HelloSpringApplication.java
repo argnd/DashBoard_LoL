@@ -25,7 +25,7 @@ public class HelloSpringApplication {
 
 
     @Bean
-    public CommandLineRunner run(String... ar) throws Exception {
+    public CommandLineRunner run() throws Exception {
         return args -> {
 
             RestTemplate r = new RestTemplate();
