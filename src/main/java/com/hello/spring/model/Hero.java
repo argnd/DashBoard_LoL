@@ -14,7 +14,7 @@ public class Hero {
     private String picture;
     private Integer charm;
     private Integer tbd;
-    private List<Team> teams;
+//    private List<Team> teams;
 
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "herogen")
