@@ -73,17 +73,4 @@ public class Hero {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Hero hero = (Hero) o;
-        return Objects.equals(id, hero.id) && Objects.equals(name, hero.name) && Objects.equals(picture, hero.picture) && Objects.equals(charm, hero.charm) && Objects.equals(tbd, hero.tbd);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, picture, charm, tbd);
-    }
-
 }

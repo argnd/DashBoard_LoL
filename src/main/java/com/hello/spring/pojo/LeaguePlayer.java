@@ -70,4 +70,17 @@ public class LeaguePlayer {
         this.summonerLevel = summonerLevel;
     }
 
+    @Override
+    public String toString() {
+        return "LeaguePlayer{" +
+                "id='" + id + '\'' +
+                ", accountId='" + accountId + '\'' +
+                ", puuid='" + puuid + '\'' +
+                ", name='" + name + '\'' +
+                ", profileIconId=" + profileIconId +
+                ", revisionDate=" + revisionDate +
+                ", summonerLevel=" + summonerLevel +
+                '}';
+    }
+
 }
