@@ -1,0 +1,17 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: "a212b4b3d2e7cdf4225e"
+            clientSecret:  "cd34faddff5c40970791bc7cae4ffb303baaa19e"
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  datasource:
+    url: jdbc:mysql://${Dashboard:localhost}:3306/Dashboard
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver

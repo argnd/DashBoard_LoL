@@ -17,7 +17,7 @@ public class DashboardController {
 
     @GetMapping("/dashboard")
     public String getDashBoard() {
-        return "layouts/dashboard/spadashboard";
+        return "layouts/dashboard/dashboard";
     }
 
 }

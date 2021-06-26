@@ -1,4 +1,4 @@
-package com.hello.spring.beans;
+package com.hello.spring.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -13,7 +13,6 @@ public class LeaguePlayer {
     private double profileIconId;
     private double revisionDate;
     private double summonerLevel;
-
 
     public String getId() {
         return id;
@@ -70,4 +69,18 @@ public class LeaguePlayer {
     public void setSummonerLevel(double summonerLevel) {
         this.summonerLevel = summonerLevel;
     }
+
+    @Override
+    public String toString() {
+        return "LeaguePlayer{" +
+                "id='" + id + '\'' +
+                ", accountId='" + accountId + '\'' +
+                ", puuid='" + puuid + '\'' +
+                ", name='" + name + '\'' +
+                ", profileIconId=" + profileIconId +
+                ", revisionDate=" + revisionDate +
+                ", summonerLevel=" + summonerLevel +
+                '}';
+    }
+
 }

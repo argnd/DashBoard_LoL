@@ -28,4 +28,5 @@ public class ManageTeamService {
         int userid = user.getId();
         return user.getTeam().getHeroes();
     }
+
 }

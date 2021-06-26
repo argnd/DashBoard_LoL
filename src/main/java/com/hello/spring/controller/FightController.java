@@ -11,10 +11,7 @@ public class FightController {
 
 
 
-        return "layouts/fight/fighthome";
+        return "layouts/fight/fight";
     }
-
-
-
 
 }

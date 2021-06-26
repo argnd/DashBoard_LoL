@@ -20,7 +20,16 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'mysql:mysql-connector-java'
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+    //for restfull self links
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+    // https://mvnrepository.com/artifact/org.webjars/bootstrap
+    implementation group: 'org.webjars', name: 'bootstrap', version: '5.0.1'
+    // https://mvnrepository.com/artifact/org.webjars.bower/jquery
+    implementation group: 'org.webjars.bower', name: 'jquery', version: '3.6.0'
+    // https://mvnrepository.com/artifact/org.webjars/webjars-locator - for shorter links to webjar
+    implementation group: 'org.webjars', name: 'webjars-locator', version: '0.41'
+    // https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2
+//    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client', version: '2.1.0.RELEASE'
 }
 
 test {

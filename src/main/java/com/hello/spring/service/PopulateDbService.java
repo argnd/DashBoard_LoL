@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class PopulateDb {
+public class PopulateDbService {
 
     private final UserRepository userRepository;
     private final TeamRepository teamRepository;
     private final HeroRepository heroRepository;
 
     @Autowired
-    public PopulateDb(UserRepository userRepository, TeamRepository teamRepository, HeroRepository heroRepository) {
+    public PopulateDbService(UserRepository userRepository, TeamRepository teamRepository, HeroRepository heroRepository) {
         this.userRepository = userRepository;
         this.teamRepository = teamRepository;
         this.heroRepository = heroRepository;
