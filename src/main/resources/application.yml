@@ -8,8 +8,11 @@ spring:
             clientSecret:  "cd34faddff5c40970791bc7cae4ffb303baaa19e"
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
   datasource:
     url: jdbc:mysql://${Dashboard:localhost}:3306/Dashboard
     username: root

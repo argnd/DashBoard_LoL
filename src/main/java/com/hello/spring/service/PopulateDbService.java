@@ -69,7 +69,13 @@ public class PopulateDbService {
         tmph4.setTbd(5);
         tmph4.setPicture("JE SUIS UN DEMON");
         //Create Team
+        heroRepository.save(tmph);
+        heroRepository.save(tmph1);
+        heroRepository.save(tmph2);
+        heroRepository.save(tmph3);
+        heroRepository.save(tmph4);
         Team team = new Team();
+        Team team2 = new Team();
         List<Hero> tmpset = new ArrayList<>();
         tmpset.add(tmph);
         tmpset.add(tmph1);
@@ -77,11 +83,16 @@ public class PopulateDbService {
         tmpset.add(tmph3);
         tmpset.add(tmph4);
         team.setHeroes(tmpset);
-
+        team2.setHeroes(tmpset);
         //Affecter la team au user
         user.setTeam(team);
         //Sauvegarder le user
         userRepository.save(user);
+        User bob = new User();
+        bob.setTeam(team2);
+        bob.setUsername("NoobMaster69");
+        userRepository.save(bob);
+        User bob2 = userRepository.getById(2);
         return user;
     }
 
