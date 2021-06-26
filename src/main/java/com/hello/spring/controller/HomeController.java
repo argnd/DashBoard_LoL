@@ -2,7 +2,7 @@ package com.hello.spring.controller;
 
 
 import com.hello.spring.model.User;
-import com.hello.spring.service.PopulateDb;
+import com.hello.spring.service.PopulateDbService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -17,11 +17,11 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class HomeController {
 
-    private final PopulateDb populateDb;
+    private final PopulateDbService populateDbService;
 
     @Autowired
-    public HomeController(PopulateDb populateDb) {
-        this.populateDb = populateDb;
+    public HomeController(PopulateDbService populateDbService) {
+        this.populateDbService = populateDbService;
     }
 
     @GetMapping("/")
@@ -31,7 +31,7 @@ public class HomeController {
 
     @PostMapping("/home")
     public String Login(@RequestParam String name, HttpSession session) {
-        User currentUser = populateDb.populate(name);
+        User currentUser = populateDbService.populate(name);
         session.setAttribute("user", currentUser);
         return "layouts/home";
     }
