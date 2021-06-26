@@ -13,12 +13,19 @@ repositories {
 }
 
 dependencies {
+    //for endpoint shutdown of server
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    //database
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    //vues
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    //mvc
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    //faster reload
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    //driver mysql
     runtimeOnly 'mysql:mysql-connector-java'
+    //
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     //for restfull self links
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'
