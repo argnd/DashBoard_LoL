@@ -20,7 +20,6 @@ public class HelloSpringApplication {
         SpringApplication.run(HelloSpringApplication.class, args);
     }
 
-
     @Bean
     public CommandLineRunner run() throws Exception {
         return args -> {

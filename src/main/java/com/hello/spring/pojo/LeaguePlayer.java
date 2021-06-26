@@ -69,4 +69,5 @@ public class LeaguePlayer {
     public void setSummonerLevel(double summonerLevel) {
         this.summonerLevel = summonerLevel;
     }
+
 }

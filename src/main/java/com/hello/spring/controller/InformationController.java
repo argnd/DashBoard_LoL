@@ -20,8 +20,10 @@ public class InformationController {
     public String getHelp() {
         return "layouts/information/help";
     }
+
     @GetMapping("/mentions")
     public String getMentions() {
         return "layouts/information/mentions";
     }
+
 }

@@ -8,6 +8,7 @@ import java.util.Objects;
 @Entity
 @Table(name="users")
 public class User {
+
     private Integer id;
     private String avatar;
     private String email;
@@ -123,4 +124,5 @@ public class User {
     public int hashCode() {
         return Objects.hash(id, avatar, email, password, summoner, team, username, wallpaper);
     }
+
 }
