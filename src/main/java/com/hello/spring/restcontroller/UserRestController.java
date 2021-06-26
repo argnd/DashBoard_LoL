@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 public class UserRestController {
+
     private UserRepository userRepository;
 
     @Autowired
@@ -17,7 +18,7 @@ public class UserRestController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/users")
+    @GetMapping("/api/users")
     public List<User> getall() {
         return userRepository.findAll();
     }

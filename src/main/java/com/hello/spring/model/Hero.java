@@ -6,6 +6,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "heroes", schema = "dashboard")
 public class Hero {
+
     private Integer id;
     private String name;
     private String picture;

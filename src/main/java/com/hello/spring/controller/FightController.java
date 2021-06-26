@@ -14,7 +14,4 @@ public class FightController {
         return "layouts/fight/fighthome";
     }
 
-
-
-
 }

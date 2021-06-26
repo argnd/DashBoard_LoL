@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "teams", schema = "dashboard")
 public class Team {
+
     private Integer id;
     private User user;
     private List<Hero> heroes;
@@ -59,4 +60,5 @@ public class Team {
                 ", heroes=" + heroes +
                 '}';
     }
+
 }

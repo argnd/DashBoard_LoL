@@ -25,4 +25,5 @@ public class ManageTeam {
     public String manageTeam() {
         return "layouts/manageteam/home";
     }
+
 }
