@@ -1,7 +1,5 @@
 package com.hello.spring.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,7 +9,6 @@ import java.util.List;
 public class Team {
 
     private Integer id;
-    private User user;
     private List<Hero> heroes;
 
     @Id
@@ -29,17 +26,7 @@ public class Team {
         this.id = id;
     }
 
-    @OneToOne(mappedBy = "team")
-    @JsonBackReference
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.REFRESH)
     @JoinTable(
             name = "hero_team",
             joinColumns = @JoinColumn(name = "Team_id"),
@@ -56,7 +43,6 @@ public class Team {
     public String toString() {
         return "Team{" +
                 "id=" + id +
-                ", user=" + user +
                 ", heroes=" + heroes +
                 '}';
     }

@@ -1,7 +1,9 @@
 package com.hello.spring.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.util.Objects;
+import java.util.List;
 
 @Entity
 @Table(name = "heroes", schema = "dashboard")
@@ -12,6 +14,7 @@ public class Hero {
     private String picture;
     private Integer charm;
     private Integer tbd;
+    private List<Team> teams;
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "herogen")
     @SequenceGenerator(
@@ -62,6 +65,16 @@ public class Hero {
         this.tbd = tbd;
     }
 
+    @ManyToMany(mappedBy = "heroes", cascade = CascadeType.REFRESH)
+    @JsonIgnore
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
+    }
+
     @Override
     public String toString() {
         return "Hero{" +
@@ -70,6 +83,7 @@ public class Hero {
                 ", picture='" + picture + '\'' +
                 ", charm=" + charm +
                 ", tbd=" + tbd +
+                ", teams=" + teams +
                 '}';
     }
 

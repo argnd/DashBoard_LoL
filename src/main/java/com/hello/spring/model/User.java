@@ -69,7 +69,7 @@ public class User {
         this.summoner = summoner;
     }
 
-    @OneToOne(cascade=CascadeType.PERSIST)
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "team_id",referencedColumnName = "id")
     @JsonManagedReference
     public Team getTeam() {
