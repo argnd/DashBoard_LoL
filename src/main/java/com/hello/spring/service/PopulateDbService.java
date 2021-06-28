@@ -3,6 +3,7 @@ package com.hello.spring.service;
 import com.hello.spring.model.Hero;
 import com.hello.spring.model.Team;
 import com.hello.spring.model.User;
+import com.hello.spring.pojo.championdata.ChampionData;
 import com.hello.spring.repository.HeroRepository;
 import com.hello.spring.repository.TeamRepository;
 import com.hello.spring.repository.UserRepository;
@@ -12,10 +13,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class PopulateDbService {
 
+    private String[] excptns = new String[]{"Cho'Gath"};
     private final UserRepository userRepository;
     private final TeamRepository teamRepository;
     private final HeroRepository heroRepository;
@@ -25,6 +28,23 @@ public class PopulateDbService {
         this.userRepository = userRepository;
         this.teamRepository = teamRepository;
         this.heroRepository = heroRepository;
+    }
+
+    public void createHeroes(Map<String, ChampionData> championDataMap){
+        for (Map.Entry<String,ChampionData> m: championDataMap.entrySet() ) {
+            Hero tmphHero = new Hero();
+            String link = String.valueOf(m.getValue().getName())
+                    .replaceAll("[^a-zA-Z0-9]", " ")
+                    .replace(" ","")
+                    +"_0.jpg";
+            tmphHero.setPicture("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+link);
+
+            tmphHero.setName(m.getValue().getName());
+            tmphHero.setTbd(m.getValue().getInfo().getAttack());
+            tmphHero.setDescritpion(m.getValue().getBlurb());
+            heroRepository.save(tmphHero);
+
+        }
     }
 
     public User populate(String username) {

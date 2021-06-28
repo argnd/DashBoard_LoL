@@ -1,6 +1,7 @@
 package com.hello.spring.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,6 +15,7 @@ public class Hero {
     private String picture;
     private Integer charm;
     private Integer tbd;
+    private String descritpion;
     private List<Team> teams;
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "herogen")
@@ -36,6 +38,16 @@ public class Hero {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Basic @Column(name = "Description")
+    @Type(type = "text")
+    public String getDescritpion() {
+        return descritpion;
+    }
+
+    public void setDescritpion(String descritpion) {
+        this.descritpion = descritpion;
     }
 
     @Basic @Column(name = "Picture")
