@@ -59,4 +59,5 @@ public class ChampionData {
                 ", blurb:'" + blurb + '\'' +", "+
                 info;
     }
+
 }

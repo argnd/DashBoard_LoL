@@ -26,7 +26,7 @@ public class Team {
         this.id = id;
     }
 
-    @ManyToMany(cascade = CascadeType.REFRESH)
+    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinTable(
             name = "hero_team",
             joinColumns = @JoinColumn(name = "Team_id"),

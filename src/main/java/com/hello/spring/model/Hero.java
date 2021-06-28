@@ -77,7 +77,7 @@ public class Hero {
         this.tbd = tbd;
     }
 
-    @ManyToMany(mappedBy = "heroes", cascade = CascadeType.REFRESH)
+    @ManyToMany(mappedBy = "heroes", cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JsonIgnore
     public List<Team> getTeams() {
         return teams;

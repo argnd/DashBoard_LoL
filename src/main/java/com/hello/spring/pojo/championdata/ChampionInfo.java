@@ -6,8 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class ChampionInfo {
     private Integer attack;
 
-
-
     public Integer getAttack() {
         return attack;
     }
