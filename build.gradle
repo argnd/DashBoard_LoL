@@ -36,7 +36,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.webjars/webjars-locator - for shorter links to webjar
     implementation group: 'org.webjars', name: 'webjars-locator', version: '0.41'
     // https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2
-//    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client', version: '2.1.0.RELEASE'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client', version: '2.1.0.RELEASE'
 }
 
 test {
