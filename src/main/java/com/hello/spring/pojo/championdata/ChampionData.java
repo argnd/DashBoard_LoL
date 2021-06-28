@@ -4,14 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ChampionData {
+
     private String id;
     private String name;
     private String title;
     private String blurb;
-
-
-    public ChampionData() {
-    }
+    ChampionInfo info;
 
     public String getId() {
         return id;
@@ -45,14 +43,20 @@ public class ChampionData {
         this.blurb = blurb;
     }
 
-    @Override
-    public String toString() {
-        return "ChampionData{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", title='" + title + '\'' +
-                ", blurb='" + blurb + '\'' +
-                '}';
+    public ChampionInfo getInfo() {
+        return info;
     }
 
+    public void setInfo(ChampionInfo info) {
+        this.info = info;
+    }
+
+    @Override
+    public String toString() {
+        return  "{id:'" + id + '\'' +
+                ", name:'" + name + '\'' +
+                ", title:'" + title + '\'' +
+                ", blurb:'" + blurb + '\'' +", "+
+                info;
+    }
 }

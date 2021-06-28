@@ -1,15 +1,22 @@
 package com.hello.spring;
 
 
+import com.hello.spring.pojo.championdata.ChampionDataWrapper;
+import com.hello.spring.service.PopulateDbService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 
 @SpringBootApplication
 @SuppressWarnings("all")
 public class HelloSpringApplication {
+
+    @Autowired
+    PopulateDbService populateDbService;
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(HelloSpringApplication.class, args);
@@ -34,15 +41,14 @@ public class HelloSpringApplication {
 //            );
 //            System.out.println(response.getBody().getName());
 //
-//            RestTemplate rr = new RestTemplate();
-//            ChampionDataJsonObject resp = rr.getForObject(
-//                    "http://ddragon.leagueoflegends.com/cdn/11.13.1/data/fr_FR/champion.json",
-//                    ChampionDataJsonObject.class);
-//
-//
-//            System.out.println(resp.getData().toString());
-//
-            System.out.println();
+            RestTemplate rr = new RestTemplate();
+            ChampionDataWrapper resp = rr.getForObject(
+                    "http://ddragon.leagueoflegends.com/cdn/11.13.1/data/en_US/champion.json",
+                    ChampionDataWrapper.class);
+
+            populateDbService.createHeroes(resp.getData());
+
+
         };
     }
 

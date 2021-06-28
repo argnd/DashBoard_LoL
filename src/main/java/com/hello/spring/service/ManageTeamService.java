@@ -29,4 +29,8 @@ public class ManageTeamService {
         return user.getTeam().getHeroes();
     }
 
+    public List<Hero> getAllHeroes(){
+        return heroRepository.findAll();
+    }
+
 }
