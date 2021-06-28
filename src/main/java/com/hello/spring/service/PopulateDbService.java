@@ -44,27 +44,27 @@ public class PopulateDbService {
         Hero tmph3 = new Hero();
         Hero tmph4 = new Hero();
         //
-        tmph.setName("Sion");
+        tmph.setName("Ahri");
         tmph.setCharm(0);
         tmph.setTbd(99);
         tmph.setPicture("LIEN VERS MA PHOTO");
         //
-        tmph1.setName("Miss Fortune");
+        tmph1.setName("MissFortune");
         tmph1.setCharm(99);
         tmph1.setTbd(30);
         tmph1.setPicture("LIEN VERS MA PHOTO");
         //
-        tmph2.setName("Rammus");
+        tmph2.setName("Ashe");
         tmph2.setCharm(30);
         tmph2.setTbd(30);
         tmph2.setPicture("LIEN VERS MA PHOTO");
         //
-        tmph3.setName("Amumu");
+        tmph3.setName("Seraphine");
         tmph3.setCharm(50);
         tmph3.setTbd(15);
         tmph3.setPicture("LIEN VERS MA PHOTO");
         //
-        tmph4.setName("Teemo");
+        tmph4.setName("Evelynn");
         tmph4.setCharm(85);
         tmph4.setTbd(5);
         tmph4.setPicture("JE SUIS UN DEMON");

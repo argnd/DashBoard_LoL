@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="card ml-3" style="width: 10rem;" th:each="hero: ${session.user.team.heroes}">
-                            <img class="card-img-top" src="https://picsum.photos/50/50" alt="Card image cap">
+                            <img th:src="@{'/images/'+${hero.name}}+'_0.jpg'">
                             <div class="card-body">
                                 <p th:text="${hero.id}"></p>
                                 <h5 class="card-title" th:text="${hero.name}" >Card title</h5>
