@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @Service
 public class PopulateDbService {
@@ -39,6 +40,12 @@ public class PopulateDbService {
                     +"_0.jpg";
             tmphHero.setPicture("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+link);
 
+            Random r = new Random();
+            int low = 1;
+            int high = 100;
+            int result = r.nextInt(high-low) + low;
+
+            tmphHero.setCharm(result);
             tmphHero.setName(m.getValue().getName());
             tmphHero.setTbd(m.getValue().getInfo().getAttack());
             tmphHero.setDescritpion(m.getValue().getBlurb());
@@ -57,62 +64,27 @@ public class PopulateDbService {
         user.setSummoner("Kez37");
         user.setWallpaper("LIEN VERS MON FOND ECRAN");
 
-        //CREATE HEROES
-        Hero tmph = new Hero();
-        Hero tmph1 = new Hero();
-        Hero tmph2 = new Hero();
-        Hero tmph3 = new Hero();
-        Hero tmph4 = new Hero();
-        //
-        tmph.setName("Ahri");
-        tmph.setCharm(0);
-        tmph.setTbd(99);
-        tmph.setPicture("LIEN VERS MA PHOTO");
-        //
-        tmph1.setName("MissFortune");
-        tmph1.setCharm(99);
-        tmph1.setTbd(30);
-        tmph1.setPicture("LIEN VERS MA PHOTO");
-        //
-        tmph2.setName("Ashe");
-        tmph2.setCharm(30);
-        tmph2.setTbd(30);
-        tmph2.setPicture("LIEN VERS MA PHOTO");
-        //
-        tmph3.setName("Seraphine");
-        tmph3.setCharm(50);
-        tmph3.setTbd(15);
-        tmph3.setPicture("LIEN VERS MA PHOTO");
-        //
-        tmph4.setName("Evelynn");
-        tmph4.setCharm(85);
-        tmph4.setTbd(5);
-        tmph4.setPicture("JE SUIS UN DEMON");
-        //Create Team
-        heroRepository.save(tmph);
-        heroRepository.save(tmph1);
-        heroRepository.save(tmph2);
-        heroRepository.save(tmph3);
-        heroRepository.save(tmph4);
         Team team = new Team();
         Team team2 = new Team();
+
         List<Hero> tmpset = new ArrayList<>();
-        tmpset.add(tmph);
-        tmpset.add(tmph1);
-        tmpset.add(tmph2);
-        tmpset.add(tmph3);
-        tmpset.add(tmph4);
+        tmpset.add(heroRepository.findByName("Teemo"));
+        tmpset.add(heroRepository.findByName("Amumu"));
+        tmpset.add(heroRepository.findByName("Rammus"));
+        tmpset.add(heroRepository.findByName("Garen"));
+        tmpset.add(heroRepository.findByName("Lulu"));
         team.setHeroes(tmpset);
         team2.setHeroes(tmpset);
-        //Affecter la team au user
+
         user.setTeam(team);
-        //Sauvegarder le user
         userRepository.save(user);
+
         User bob = new User();
         bob.setTeam(team2);
-        bob.setUsername("NoobMaster69");
+        bob.setUsername("NoobMaster_69");
         userRepository.save(bob);
-        User bob2 = userRepository.getById(2);
+
+        userRepository.delete(bob);
         return user;
     }
 

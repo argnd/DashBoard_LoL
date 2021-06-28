@@ -21,19 +21,17 @@
             <div class="col-md-9">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="border border-light">
-                            <h5 class="text-center">Mon équipe</h5>
-                            <div class="d-flex">
-                            <ul class="list-group list-group-horizontal-sm mx-auto mb-5 justify-content-center">
-                                <li class="list-group-item">Héro 1</li>
-                                <li class="list-group-item">Héro 2</li>
-                                <li class="list-group-item">Héro 3</li>
-                                <li class="list-group-item">Héro 4</li>
-                                <li class="list-group-item">Héro 5</li>
-                                <li class="list-group-item">Total Charme</li>
-                            </ul>
+                        <div class="card ml-4" style="width: 10rem;" th:each="hero: ${session.user.team.heroes}">
+                            <img th:src="${hero.picture}">
+                            <div class="card-body">
+                                <p th:text="${hero.id}"></p>
+                                <h5 class="card-title" th:text="${hero.name}" >Card title</h5>
                             </div>
                         </div>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
                         <div class="card ml-4" style="width: 10rem;" th:each="hero: ${heroList}">
                             <img th:src="${hero.picture}">
                             <div class="card-body">
