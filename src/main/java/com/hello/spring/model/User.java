@@ -69,7 +69,7 @@ public class User {
         this.summoner = summoner;
     }
 
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "team_id",referencedColumnName = "id")
     @JsonManagedReference
     public Team getTeam() {
@@ -96,20 +96,6 @@ public class User {
 
     public void setWallpaper(String wallpaper) {
         this.wallpaper = wallpaper;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", avatar='" + avatar + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", summoner='" + summoner + '\'' +
-                ", team=" + team +
-                ", username='" + username + '\'' +
-                ", wallpaper='" + wallpaper + '\'' +
-                '}';
     }
 
 }

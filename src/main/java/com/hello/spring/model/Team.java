@@ -39,12 +39,5 @@ public class Team {
         this.heroes = heroes;
     }
 
-    @Override
-    public String toString() {
-        return "Team{" +
-                "id=" + id +
-                ", heroes=" + heroes +
-                '}';
-    }
 
 }

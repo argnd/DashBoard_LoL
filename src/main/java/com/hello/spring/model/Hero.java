@@ -87,16 +87,4 @@ public class Hero {
         this.teams = teams;
     }
 
-    @Override
-    public String toString() {
-        return "Hero{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", picture='" + picture + '\'' +
-                ", charm=" + charm +
-                ", tbd=" + tbd +
-                ", teams=" + teams +
-                '}';
-    }
-
 }

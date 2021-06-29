@@ -1,12 +1,27 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
-    <title> Team New Hero Select </title>
+    <title>Team Home </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link  th:replace="fragments/header :: bootstrap" rel="stylesheet" href="">
 </head>
 <body>
 <header th:replace="fragments/header :: header"> </header>
+<div class="container">
+
+    <h1 class="text-center">Gérer votre équipe</h1>
+
+
+    <p th:text="${hero.get.id}">Test</p>
+    <p th:text="${hero.get.descritpion}">Test</p>
+
+    <span th:if="${canAdd}">
+        <a th:href="@{/add-hero-validated(id=${hero.get.id})}">Add</a>
+    </span>
+    <span th:if="not ${canAdd}">
+        <a th:href="@{/manage-team}">return</a>
+    </span>
+
 
 <footer th:replace="fragments/footer :: footer"> </footer>
 
