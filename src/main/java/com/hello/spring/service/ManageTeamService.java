@@ -38,6 +38,29 @@ public class ManageTeamService {
         return heroRepository.findById(id); //find return optional
     }
 
+    public boolean  canUserAddHero(Integer heroId, HttpSession session){
+
+        User user = (User) session.getAttribute("user");
+        Team currentTeam = user.getTeam();
+        List<Hero> teamHeroes = currentTeam.getHeroes();
+
+        int dummyCount = 0;
+
+        for (int i = 0; i < teamHeroes.size(); i++) {
+            Integer currId = teamHeroes.get(i).getId();
+            if (currId !=DUMMY_HERO_ID) {
+                if (currId.equals(heroId)) {
+                    return false;
+                }
+            }
+            if (teamHeroes.get(i).getId()==DUMMY_HERO_ID){
+                dummyCount++;
+            }
+        }
+
+        return dummyCount != 0;
+    }
+
     public void addHeroToUser(Integer heroId, HttpSession session){
         User user = (User) session.getAttribute("user");
         String username = user.getUsername();
@@ -65,7 +88,7 @@ public class ManageTeamService {
         List<Hero> teamHeroes = currentTeam.getHeroes();
 
 
-        System.out.println(teamHeroes.remove(findHeroPositionInList(teamHeroes, heroToRemove)));
+        teamHeroes.remove(findHeroPositionInList(teamHeroes, heroToRemove));
         teamHeroes.add(heroRepository.getById(DUMMY_HERO_ID));
 
         userRepository.save(user);

@@ -29,8 +29,10 @@ public class ManageTeamController {
     }
 
     @GetMapping("/add-hero")
-    public String addHero(@RequestParam Integer id,Model model) {
+    public String addHero(@RequestParam Integer id,Model model, HttpSession session) {
         model.addAttribute("hero", manageTeamService.getById(id));
+        model.addAttribute("canAdd",manageTeamService.canUserAddHero(id,session));
+        System.out.println(manageTeamService.canUserAddHero(id,session));
         return "layouts/manageteam/newheroselected";
     }
 
