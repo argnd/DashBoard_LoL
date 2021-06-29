@@ -32,6 +32,15 @@ public class PopulateDbService {
     }
 
     public void createHeroes(Map<String, ChampionData> championDataMap){
+        //DUMMY HERO IS DEFAULT VALUE OF TEAM
+        Hero DUMMY_HERO = new Hero();
+        DUMMY_HERO.setName("DUMMY");
+        DUMMY_HERO.setDescritpion("DUMMY");
+        DUMMY_HERO.setPicture("DUMMY");
+        DUMMY_HERO.setCharm(0);
+        DUMMY_HERO.setTbd(0);
+        heroRepository.save(DUMMY_HERO);
+
         for (Map.Entry<String,ChampionData> m: championDataMap.entrySet() ) {
             Hero tmphHero = new Hero();
             String link = String.valueOf(m.getValue().getName())
@@ -50,7 +59,6 @@ public class PopulateDbService {
             tmphHero.setTbd(m.getValue().getInfo().getAttack());
             tmphHero.setDescritpion(m.getValue().getBlurb());
             heroRepository.save(tmphHero);
-
         }
     }
 
@@ -68,11 +76,11 @@ public class PopulateDbService {
         Team team2 = new Team();
 
         List<Hero> tmpset = new ArrayList<>();
-        tmpset.add(heroRepository.findByName("Teemo"));
-        tmpset.add(heroRepository.findByName("Amumu"));
-        tmpset.add(heroRepository.findByName("Rammus"));
-        tmpset.add(heroRepository.findByName("Garen"));
-        tmpset.add(heroRepository.findByName("Lulu"));
+        tmpset.add(heroRepository.findByName("DUMMY"));
+        tmpset.add(heroRepository.findByName("DUMMY"));
+        tmpset.add(heroRepository.findByName("DUMMY"));
+        tmpset.add(heroRepository.findByName("DUMMY"));
+        tmpset.add(heroRepository.findByName("DUMMY"));
         team.setHeroes(tmpset);
         team2.setHeroes(tmpset);
 

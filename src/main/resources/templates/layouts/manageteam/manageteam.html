@@ -38,7 +38,7 @@
                                 <p th:text="${hero.id}"></p>
                                 <h5 class="card-title" th:text="${hero.name}" >Card title</h5>
                                 <h6 class="card-title" th:text="${hero.tbd}" >Card title</h6>
-                                <h6 class="card-title" th:text="${hero.picture}" >Card title</h6>
+                                <a th:href="@{/add-hero(id=${hero.id})}">Add</a>
                             </div>
                         </div>
                     </div>

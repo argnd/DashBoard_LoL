@@ -8,15 +8,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-public class ManageTeam {
+public class ManageTeamController {
 
     private final ManageTeamService manageTeamService;
 
     @Autowired
-    public ManageTeam(ManageTeamService manageTeamService) {
+    public ManageTeamController(ManageTeamService manageTeamService) {
         this.manageTeamService = manageTeamService;
     }
 
@@ -25,6 +26,18 @@ public class ManageTeam {
         List<Hero> heroList = manageTeamService.getAllHeroes();
         model.addAttribute("heroList", heroList);
         return "layouts/manageteam/manageteam";
+    }
+
+    @GetMapping("/add-hero")
+    public String addHero(@RequestParam Integer id,Model model) {
+        model.addAttribute("hero", manageTeamService.getById(id));
+        return "layouts/manageteam/newheroselected";
+    }
+
+    @GetMapping("/add-hero-validated")
+    public String addHeroValidated(@RequestParam Integer id, HttpSession session) {
+        manageTeamService.addHeroToUser(id, session);
+        return "redirect:/manage-team";
     }
 
 }

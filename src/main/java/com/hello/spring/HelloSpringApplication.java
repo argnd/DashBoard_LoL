@@ -25,8 +25,8 @@ public class HelloSpringApplication {
     @Bean
     public CommandLineRunner run() throws Exception {
         return args -> {
-            RestTemplate rr = new RestTemplate();
-            ChampionDataWrapper resp = rr.getForObject(
+            RestTemplate r = new RestTemplate();
+            ChampionDataWrapper resp = r.getForObject(
                     "http://ddragon.leagueoflegends.com/cdn/11.13.1/data/en_US/champion.json",
                     ChampionDataWrapper.class);
 
