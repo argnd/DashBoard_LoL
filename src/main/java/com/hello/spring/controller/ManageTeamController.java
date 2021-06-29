@@ -32,7 +32,6 @@ public class ManageTeamController {
     public String addHero(@RequestParam Integer id,Model model, HttpSession session) {
         model.addAttribute("hero", manageTeamService.getById(id));
         model.addAttribute("canAdd",manageTeamService.canUserAddHero(id,session));
-        System.out.println(manageTeamService.canUserAddHero(id,session));
         return "layouts/manageteam/newheroselected";
     }
 
