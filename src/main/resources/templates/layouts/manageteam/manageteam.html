@@ -26,6 +26,7 @@
                             <div class="card-body">
                                 <p th:text="${hero.id}"></p>
                                 <h5 class="card-title" th:text="${hero.name}" >Card title</h5>
+                                <a th:href="@{/remove-hero(id=${hero.id})}">Remove</a>
                             </div>
                         </div>
                         <p></p>

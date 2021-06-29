@@ -40,4 +40,10 @@ public class ManageTeamController {
         return "redirect:/manage-team";
     }
 
+    @GetMapping("/remove-hero")
+    public String removeHero(@RequestParam Integer id,HttpSession session) {
+        manageTeamService.removeHeroFromUser(id, session);
+        return "redirect:/manage-team";
+    }
+
 }
