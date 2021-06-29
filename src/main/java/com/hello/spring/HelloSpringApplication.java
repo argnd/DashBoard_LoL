@@ -29,7 +29,6 @@ public class HelloSpringApplication {
             ChampionDataWrapper resp = r.getForObject(
                     "http://ddragon.leagueoflegends.com/cdn/11.13.1/data/en_US/champion.json",
                     ChampionDataWrapper.class);
-
             populateDbService.createHeroes(resp.getData());
         };
     }
