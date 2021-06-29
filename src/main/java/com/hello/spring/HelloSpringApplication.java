@@ -22,6 +22,7 @@ public class HelloSpringApplication {
         SpringApplication.run(HelloSpringApplication.class, args);
     }
 
+    //Create hero list on db startup
     @Bean
     public CommandLineRunner run() throws Exception {
         return args -> {

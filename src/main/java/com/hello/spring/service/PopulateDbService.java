@@ -19,7 +19,11 @@ import java.util.Random;
 @Service
 public class PopulateDbService {
 
-    private String[] excptns = new String[]{"Cho'Gath"};
+    public static final String[] specialNames = new String[]
+            {"DUMMY","Kai'Sa","Cho'Gath","Kha'Zix","Vel'Koz","LeBlanc","Wukong","Nunu & Willump"};
+    public static final String baseLink = "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/";
+    public static final String skinId ="_0.jpg";
+
     private final UserRepository userRepository;
     private final TeamRepository teamRepository;
     private final HeroRepository heroRepository;
@@ -32,6 +36,7 @@ public class PopulateDbService {
     }
 
     public void createHeroes(Map<String, ChampionData> championDataMap){
+
         //DUMMY HERO IS DEFAULT VALUE OF TEAM
         Hero DUMMY_HERO = new Hero();
         DUMMY_HERO.setName("DUMMY");
@@ -43,11 +48,18 @@ public class PopulateDbService {
 
         for (Map.Entry<String,ChampionData> m: championDataMap.entrySet() ) {
             Hero tmphHero = new Hero();
-            String link = String.valueOf(m.getValue().getName())
-                    .replaceAll("[^a-zA-Z0-9]", " ")
-                    .replace(" ","")
-                    +"_0.jpg";
-            tmphHero.setPicture("http://ddragon.leagueoflegends.com/cdn/img/champion/splash/"+link);
+
+            String heroName = m.getValue().getName();
+            if (insntSpecial(heroName)) {
+                String link = String.valueOf(m.getValue().getName())
+                        .replaceAll("[^a-zA-Z0-9]", " ")
+                        .replace(" ","")
+                        +skinId;
+                tmphHero.setPicture(baseLink+link);
+            } else{
+                String link = specialNameLinkGenerator(heroName);
+                tmphHero.setPicture(link);
+            }
 
             Random r = new Random();
             int low = 1;
@@ -62,18 +74,22 @@ public class PopulateDbService {
         }
     }
 
+    //Create 5 user, one whose name is the value of the form
     public User populate(String username) {
         //CREATE USER
         User user = new User();
         user.setAvatar("LIEN VERS MON AVATAR");
         user.setEmail("Hello@world.com");
-        user.setUsername("noobmaster_420");
+        user.setUsername(username);
         user.setPassword("hunter2");
         user.setSummoner("Kez37");
         user.setWallpaper("LIEN VERS MON FOND ECRAN");
 
         Team team = new Team();
         Team team2 = new Team();
+        Team team3 = new Team();
+        Team team4 = new Team();
+        Team team5 = new Team();
 
         List<Hero> tmpset = new ArrayList<>();
         tmpset.add(heroRepository.findByName("DUMMY"));
@@ -83,6 +99,9 @@ public class PopulateDbService {
         tmpset.add(heroRepository.findByName("DUMMY"));
         team.setHeroes(tmpset);
         team2.setHeroes(tmpset);
+        team3.setHeroes(tmpset);
+        team4.setHeroes(tmpset);
+        team5.setHeroes(tmpset);
 
         user.setTeam(team);
         userRepository.save(user);
@@ -92,8 +111,63 @@ public class PopulateDbService {
         bob.setUsername("NoobMaster_69");
         userRepository.save(bob);
 
-        userRepository.delete(bob);
+        User ross = new User();
+        ross.setTeam(team3);
+        ross.setUsername("jojo");
+        userRepository.save(ross);
+
+        User arg = new User();
+        arg.setTeam(team4);
+        arg.setUsername("ARG");
+        userRepository.save(arg);
+
+        User ysf = new User();
+        ysf.setTeam(team5);
+        ysf.setUsername("YSF");
+        userRepository.save(ysf);
+
         return user;
+    }
+
+    private boolean insntSpecial(String name){
+        boolean sp = true;
+        for (int i = 0; i < specialNames.length; i++) {
+            if(specialNames[i].equals(name)){
+                sp = false;
+            }
+        }
+        return sp;
+    }
+
+    private String specialNameLinkGenerator(String name){
+        StringBuilder link = new StringBuilder();
+        switch(name) {
+            case "DUMMY":
+                link.append("DUMMUY.jpg");
+                break;
+            case "Kai'Sa":
+                link.append(baseLink+"Kaisa"+skinId);
+                break;
+            case "Cho'Gath":
+                link.append(baseLink+"Chogath"+skinId);
+                break;
+            case "Kha'Zix":
+                link.append(baseLink+"Khazix"+skinId);
+                break;
+            case "Vel'Koz":
+                link.append(baseLink+"Velkoz"+skinId);
+                break;
+            case "LeBlanc":
+                link.append(baseLink+"Leblanc"+skinId);
+                break;
+            case "Nunu & Willump":
+                link.append(baseLink+"Nunu"+skinId);
+                break;
+            case "Wukong":
+                link.append(baseLink+"MonkeyKing"+skinId);
+                break;
+        }
+        return link.toString();
     }
 
 }
