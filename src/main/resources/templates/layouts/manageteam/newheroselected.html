@@ -15,7 +15,13 @@
     <p th:text="${hero.get.id}">Test</p>
     <p th:text="${hero.get.descritpion}">Test</p>
 
-    <a th:href="@{/add-hero-validated(id=${hero.get.id})}">Add</a>
+    <span th:if="${canAdd}">
+        <a th:href="@{/add-hero-validated(id=${hero.get.id})}">Add</a>
+    </span>
+    <span th:if="not ${canAdd}">
+        <a th:href="@{/manage-team}">return</a>
+    </span>
+
 
 <footer th:replace="fragments/footer :: footer"> </footer>
 
