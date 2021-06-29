@@ -1,7 +1,7 @@
 package com.hello.spring;
 
 
-import com.hello.spring.pojo.championdata.ChampionDataWrapper;
+import com.hello.spring.dto.championdata.ChampionDataWrapper;
 import com.hello.spring.service.PopulateDbService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

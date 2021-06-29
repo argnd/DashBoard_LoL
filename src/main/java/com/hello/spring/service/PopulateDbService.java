@@ -3,7 +3,7 @@ package com.hello.spring.service;
 import com.hello.spring.model.Hero;
 import com.hello.spring.model.Team;
 import com.hello.spring.model.User;
-import com.hello.spring.pojo.championdata.ChampionData;
+import com.hello.spring.dto.championdata.ChampionData;
 import com.hello.spring.repository.HeroRepository;
 import com.hello.spring.repository.TeamRepository;
 import com.hello.spring.repository.UserRepository;
@@ -20,7 +20,7 @@ import java.util.Random;
 public class PopulateDbService {
 
     public static final String[] specialNames = new String[]
-            {"DUMMY","Kai'Sa","Cho'Gath","Kha'Zix","Vel'Koz","LeBlanc","Wukong","Nunu & Willump"};
+            {"Kai'Sa","Cho'Gath","Kha'Zix","Vel'Koz","LeBlanc","Wukong","Nunu & Willump"};
     public static final String baseLink = "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/";
     public static final String skinId ="_0.jpg";
 
@@ -142,9 +142,6 @@ public class PopulateDbService {
     private String specialNameLinkGenerator(String name){
         StringBuilder link = new StringBuilder();
         switch(name) {
-            case "DUMMY":
-                link.append("DUMMUY.jpg");
-                break;
             case "Kai'Sa":
                 link.append(baseLink+"Kaisa"+skinId);
                 break;

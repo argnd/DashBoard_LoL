@@ -1,4 +1,4 @@
-package com.hello.spring.pojo;
+package com.hello.spring.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
