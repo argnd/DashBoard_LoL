@@ -20,27 +20,18 @@
         <div class="col-md-9">
             <div class="container-fluid">
                 <div class="row">
-<!--                    <div class="card ml-4" style="width: 10rem;" th:each="hero: ${session.user.team.heroes}">-->
+                    <div class="card ml-4" style="width: 10rem;" th:each="user: ${userList}">
 <!--                        <img th:src="${(hero.picture != 'DUMMY') ? hero.picture : 'images/DUMMY.jpg'}"/>-->
-<!--                        <div class="card-body">-->
-<!--                            <p th:text="${hero.id}"></p>-->
-<!--                            <h5 class="card-title" th:text="${hero.name}" >Card title</h5>-->
-<!--                            <a th:href="@{/remove-hero(id=${hero.id})}">Remove</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <div class="card ml-4" style="width: 10rem;" th:each="hero: ${heroList}">
-                        <img th:src="${(hero.picture != 'DUMMY') ? hero.picture : 'images/DUMMY.jpg'}"/>
                         <div class="card-body">
-                            <p th:text="${hero.id}"></p>
-                            <h5 class="card-title" th:text="${hero.name}" >Card title</h5>
-                            <h6 class="card-title" th:text="${hero.tbd}" >Card title</h6>
-                            <a th:href="@{/add-hero(id=${hero.id})}">Add</a>
+                            <p th:text="${user.username}"></p>
+                            <h5 class="card-title" th:text="${user.id}" >Card title</h5>
+                            <a th:href="@{/combat-oppponent-selected(id=${user.id})}">compare</a>
                         </div>
                     </div>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
                 </div>
             </div>
         </div>

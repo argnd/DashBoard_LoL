@@ -108,13 +108,8 @@ public class PopulateDbService {
 
         User bob = new User();
         bob.setTeam(team2);
-        bob.setUsername("NoobMaster_69");
+        bob.setUsername("RLN");
         userRepository.save(bob);
-
-        User ross = new User();
-        ross.setTeam(team3);
-        ross.setUsername("jojo");
-        userRepository.save(ross);
 
         User arg = new User();
         arg.setTeam(team4);
@@ -125,6 +120,11 @@ public class PopulateDbService {
         ysf.setTeam(team5);
         ysf.setUsername("YSF");
         userRepository.save(ysf);
+
+        User ross = new User();
+        ross.setTeam(team3);
+        ross.setUsername("jojo");
+        userRepository.save(ross);
 
         return user;
     }

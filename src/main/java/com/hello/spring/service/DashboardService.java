@@ -11,6 +11,7 @@ import java.util.Collections;
 public class DashboardService {
 
     public void getUserData(){
+
         RestTemplate r = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -26,6 +27,5 @@ public class DashboardService {
         );
         System.out.println(response.getBody().getName());
     }
-
 
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ChampionInfo {
+
     private Integer attack;
 
     public Integer getAttack() {
@@ -18,4 +19,5 @@ public class ChampionInfo {
     public String toString() {
         return "attack:" + attack+"}";
     }
+
 }
