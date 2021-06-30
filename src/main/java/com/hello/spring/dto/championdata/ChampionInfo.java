@@ -1,9 +1,10 @@
-package com.hello.spring.pojo.championdata;
+package com.hello.spring.dto.championdata;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ChampionInfo {
+
     private Integer attack;
 
     public Integer getAttack() {
@@ -18,4 +19,5 @@ public class ChampionInfo {
     public String toString() {
         return "attack:" + attack+"}";
     }
+
 }

@@ -1,13 +1,43 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
-    <title>Fight oppenend select</title>
+    <title>Adversaire choisi </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link  th:replace="fragments/header :: bootstrap" rel="stylesheet" href="">
 </head>
 <body>
 <header th:replace="fragments/header :: header"> </header>
-
+<div class="container">
+    <h1 class="text-center">Comparez vous</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item mt-5 text-center"><a href="">Voir mon équipe</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <p th:text="${choosenOpponent.username}"></p>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="card ml-4" style="width: 10rem;" th:each="hero: ${choosenOpponent.team.heroes}">
+                        <img th:src="${(hero.picture != 'DUMMY') ? hero.picture : 'images/DUMMY.jpg'}"/>
+                        <div class="card-body">
+                            <p th:text="${hero.name}"></p>
+                            <h5 class="card-title" th:text="${hero.id}" >Card title</h5>
+                        </div>
+                    </div>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+            <a th:href="@{/combat-oppponent-validated(id=${choosenOpponent.id})}">Remove</a>
+        </div>
+    </div>
+</div>
 <footer th:replace="fragments/footer :: footer"> </footer>
 
 </body>

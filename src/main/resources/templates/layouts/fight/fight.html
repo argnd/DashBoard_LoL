@@ -1,16 +1,41 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
-    <title>Fight Home </title>
+    <title>Fight </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link  th:replace="fragments/header :: bootstrap" rel="stylesheet" href="">
 </head>
 <body>
 <header th:replace="fragments/header :: header"> </header>
 <div class="container">
-    <h1 class="text-center"><div class="container">
-        <h1 class="text-center">Bienvenue sur page des combats</h1>
-    </div></h1>
+    <h1 class="text-center">Comparer votre équipe</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item mt-5 text-center"><a href="">Voir mon équipe</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="card ml-4" style="width: 10rem;" th:each="user: ${userList}">
+<!--                        <img th:src="${(hero.picture != 'DUMMY') ? hero.picture : 'images/DUMMY.jpg'}"/>-->
+                        <div class="card-body">
+                            <p th:text="${user.username}"></p>
+                            <h5 class="card-title" th:text="${user.id}" >Card title</h5>
+                            <a th:href="@{/combat-oppponent-selected(id=${user.id})}">compare</a>
+                        </div>
+                    </div>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <footer th:replace="fragments/footer :: footer"> </footer>
 

@@ -1,4 +1,4 @@
-package com.hello.spring.pojo.championdata;
+package com.hello.spring.dto.championdata;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

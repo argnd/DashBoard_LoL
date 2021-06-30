@@ -8,6 +8,15 @@
 <body>
 <header th:replace="fragments/header :: header"> </header>
 
+
+<span th:if="${didIWin}">
+        <p>win</p>
+    </span>
+<span th:if="not ${didIWin}">
+        <p>lose</p>
+    </span>
+
+
 <footer th:replace="fragments/footer :: footer"> </footer>
 
 </body>
