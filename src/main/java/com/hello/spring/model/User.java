@@ -3,7 +3,6 @@ package com.hello.spring.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name="users")
@@ -17,6 +16,8 @@ public class User {
     private Team team;
     private String username;
     private String wallpaper;
+    private boolean active;
+    private String roles;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usergen")
@@ -98,4 +99,21 @@ public class User {
         this.wallpaper = wallpaper;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    @Basic @Column(name = "active")
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    @Basic @Column(name = "roles")
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
 }
