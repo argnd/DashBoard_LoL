@@ -8,7 +8,7 @@ spring:
             clientSecret:  "cd34faddff5c40970791bc7cae4ffb303baaa19e"
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     open-in-view: true
     properties:
       hibernate:

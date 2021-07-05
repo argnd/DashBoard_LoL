@@ -84,7 +84,7 @@ public class PopulateDbService {
         user.setPassword("hunter2");
         user.setSummoner("Kez37");
         user.setWallpaper("LIEN VERS MON FOND ECRAN");
-
+        user.setRoles("ROLE_USER");
         Team team = new Team();
         Team team2 = new Team();
         Team team3 = new Team();
@@ -127,6 +127,10 @@ public class PopulateDbService {
         userRepository.save(ross);
 
         return user;
+    }
+
+    public User getUserByUserName(String userName){
+        return userRepository.findByUsername(userName);
     }
 
     private boolean insntSpecial(String name){

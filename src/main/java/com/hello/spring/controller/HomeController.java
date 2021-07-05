@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.security.Principal;
 
 @Controller
 public class HomeController {
@@ -28,8 +29,8 @@ public class HomeController {
     }
 
     @PostMapping("/home")
-    public String Login(@RequestParam String name, HttpSession session) {
-        User currentUser = populateDbService.populate(name);
+    public String Login(@RequestParam String name, HttpSession session, Principal principal) {
+        User currentUser = populateDbService.getUserByUserName(principal.getName());
         session.setAttribute("user", currentUser);
         return "layouts/home";
     }
