@@ -18,11 +18,6 @@ public class HomeController {
 
     private final PopulateDbService populateDbService;
 
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
-
     @Autowired
     public HomeController(PopulateDbService populateDbService) {
         this.populateDbService = populateDbService;
@@ -33,6 +28,16 @@ public class HomeController {
         return "/welcome";
     }
 
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
+    @GetMapping("/oauthlogin")
+    public String oauthLogin(){
+        return "oauthlogin";
+    }
+
     @GetMapping("/logout")
     public String logout(Model model) {
         model.addAttribute("logout","");
@@ -41,9 +46,12 @@ public class HomeController {
 
     @GetMapping("/home")
     public String gethome(HttpSession session, Principal principal){
-//        User currentUser = populateDbService.getUserByUserName(principal.getName());
-//        session.setAttribute("user", currentUser);
-        session.setAttribute("user", new User());
+        User currentUser = populateDbService.getUserByUserName("noobmaster_420");
+        session.setAttribute("user", currentUser);
+
+        System.out.println(principal.getClass());
+        System.out.println(principal.toString());
+
         return "layouts/home";
     }
 

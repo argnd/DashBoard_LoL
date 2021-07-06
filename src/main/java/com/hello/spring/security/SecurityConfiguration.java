@@ -29,15 +29,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .defaultSuccessUrl("/home", true)
                 .and()
+            .oauth2Login()
+                .loginPage("/oauth_login")
+                .defaultSuccessUrl("/home", true)
+                .and()
             .logout()
                 .permitAll();
+
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(customAuthProvider);
         auth.authenticationProvider(authenticationProvider());
-
     }
 
     @Bean
