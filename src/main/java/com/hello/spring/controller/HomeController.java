@@ -30,8 +30,9 @@ public class HomeController {
 
     @PostMapping("/home")
     public String Login(@RequestParam String name, HttpSession session, Principal principal) {
-        User currentUser = populateDbService.getUserByUserName(principal.getName());
-        session.setAttribute("user", currentUser);
+//        User currentUser = populateDbService.getUserByUserName(principal.getName());
+//        session.setAttribute("user", currentUser);
+        session.setAttribute("user", new User());
         return "layouts/home";
     }
 
