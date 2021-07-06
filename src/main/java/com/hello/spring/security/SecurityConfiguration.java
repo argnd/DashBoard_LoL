@@ -22,15 +22,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/**").hasAnyRole("USER")
-//                .anyRequest().authenticated()
+                .antMatchers("/layouts/**").hasAnyRole("USER")
                 .and()
-                .formLogin();
-//                .loginPage("/login")
-//                .permitAll()
-//                .and()
-//            .logout()
-//                .permitAll();
+            .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .defaultSuccessUrl("/home", true)
+                .and()
+            .logout()
+                .permitAll();
     }
 
     @Override

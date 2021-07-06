@@ -18,6 +18,11 @@ public class HomeController {
 
     private final PopulateDbService populateDbService;
 
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
     @Autowired
     public HomeController(PopulateDbService populateDbService) {
         this.populateDbService = populateDbService;
@@ -28,17 +33,15 @@ public class HomeController {
         return "/welcome";
     }
 
-    @PostMapping("/home")
-    public String Login(@RequestParam String name, HttpSession session, Principal principal) {
+
+    @GetMapping("/home")
+    public String gethome(HttpSession session, Principal principal){
 //        User currentUser = populateDbService.getUserByUserName(principal.getName());
 //        session.setAttribute("user", currentUser);
         session.setAttribute("user", new User());
         return "layouts/home";
     }
 
-    @GetMapping("/home")
-    public String gethome() {
-        return "layouts/home";
-    }
+
 
 }
