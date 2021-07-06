@@ -6,8 +6,8 @@ import com.hello.spring.service.PopulateDbService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
@@ -33,6 +33,11 @@ public class HomeController {
         return "/welcome";
     }
 
+    @GetMapping("/logout")
+    public String logout(Model model) {
+        model.addAttribute("logout","");
+        return "/login";
+    }
 
     @GetMapping("/home")
     public String gethome(HttpSession session, Principal principal){
