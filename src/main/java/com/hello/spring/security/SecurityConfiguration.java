@@ -30,7 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/home", true)
                 .and()
             .oauth2Login()
-                .loginPage("/oauth_login")
+                .loginPage("/oauthlogin")
                 .defaultSuccessUrl("/home", true)
                 .and()
             .logout()
