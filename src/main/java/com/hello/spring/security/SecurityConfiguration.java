@@ -1,7 +1,6 @@
 package com.hello.spring.security;
 
 import com.hello.spring.service.MyUserDetailsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -28,6 +27,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         return authProvider;
     }
+
+    @Bean
+    public PasswordEncoder getPassWordEncoder(){
+        return NoOpPasswordEncoder.getInstance();
+    }
+
+    //    @Bean
+//    public BCryptPasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -35,27 +45,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").hasAnyRole("USER")
 //                .anyRequest().authenticated()
                 .and()
-            .formLogin()
+            .formLogin();
 //                .loginPage("/login")
-                .permitAll()
-                .and()
-            .logout()
-                .permitAll();
+//                .permitAll()
+//                .and()
+//            .logout()
+//                .permitAll();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
-
-    @Bean
-    public PasswordEncoder getPassWordEncoder(){
-        return NoOpPasswordEncoder.getInstance();
-    }
-
-//    @Bean
-//    public BCryptPasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
 
 }
