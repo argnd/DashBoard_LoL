@@ -17,8 +17,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Autowired
+    final
     CustomAuthProvider customAuthProvider;
+
+    @Autowired
+    public SecurityConfiguration(CustomAuthProvider customAuthProvider) {
+        this.customAuthProvider = customAuthProvider;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -65,15 +70,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public PasswordEncoder getPassWordEncoder(){
         return NoOpPasswordEncoder.getInstance();
     }
+    
+    //    @Bean
+//    public BCryptPasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 
     @Bean
     public AuthorizationFilter authenticationJwtTokenFilter() {
         return new AuthorizationFilter();
     }
 
-    //    @Bean
-//    public BCryptPasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
+
 
 }
