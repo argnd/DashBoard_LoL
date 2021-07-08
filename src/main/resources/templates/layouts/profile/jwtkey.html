@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <p th:text=${key}>  --</p>
 </head>
 <body>
+<header th:replace="fragments/header :: header"> </header>
 
+<p th:text=${key}>  --</p>
+
+<footer th:replace="fragments/footer :: footer"> </footer>
 </body>
+
 </html>

@@ -1,14 +1,14 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
-    <title>Profil Home</title>
+    <title>Profil Infos</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link  th:replace="fragments/header :: bootstrap" rel="stylesheet" href="">
 </head>
 <body>
 <header th:replace="fragments/header :: header"> </header>
 <div class="container">
-    <h1 class="text-center">Gérer votre profil</h1>
+    <h1 class="text-center">Modifier vos informations personnelles</h1>
     <div class="row ">
         <div class="col md-3">
             <div class="card" style="width: 18rem;">
@@ -16,11 +16,33 @@
                     <li class="list-group-item mb-3"><a th:href="@{/avatar-modify}">Changer Avatar</a></li>
                     <li class="list-group-item mb-3"><a th:href="@{/mail-modify}">Changer Infos Persos</a></li>
                     <li class="list-group-item mb-3"><a th:href="@{/wallp-modify}">Changer Fond d'écran</a></li>
-                    <li class="list-group-item mb-3"><a th:href="@{/jwt}">JWT TOKEN GENERATE</a></li>
                 </ul>
             </div>
         </div>
-        <div class="col md-9"></div>
+        <div class="col md-9">
+
+
+            <h2> Username:
+                <p th:text="${session.user.username}" ></p>
+
+                Adresse mail:
+                <p th:text="${session.user.email}" ></p>
+                Mot de passe:
+                <p th:text="${session.user.password}" ></p>
+            </h2>
+
+
+
+
+            <form action="#" th:action="@{/mail-modify}"  method="post">
+                <p>Email: <input type="text" name="emailForm" /></p>
+                <p>Mot de passe: <input type="text" name="mdpForm" /></p>
+                <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+            </form>
+
+
+
+        </div>
     </div>
 </div>
 <footer th:replace="fragments/footer :: footer"> </footer>
