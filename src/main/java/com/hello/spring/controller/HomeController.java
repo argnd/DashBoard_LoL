@@ -25,7 +25,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String getWelcome() {
-        return "/welcome";
+        return "welcome";
     }
 
     @GetMapping("/login")
@@ -41,7 +41,7 @@ public class HomeController {
     @GetMapping("/logout")
     public String logout(Model model) {
         model.addAttribute("logout","");
-        return "/login";
+        return "login";
     }
 
     @GetMapping("/home")
