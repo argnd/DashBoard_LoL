@@ -5,6 +5,7 @@ import com.hello.spring.service.PopulateDbService;
 import com.hello.spring.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,8 +45,9 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String gethome(HttpSession session, Principal principal){
+    public String gethome(HttpSession session, Principal principal, Authentication authentication){
         User currentUser = populateDbService.getUserByUserName("noobmaster_420");
+//        authentication.getPrincipal();
         session.setAttribute("user", currentUser);
 
         System.out.println(principal.getClass());
