@@ -50,7 +50,7 @@ public class HomeController {
 //        authentication.getPrincipal();
         session.setAttribute("user", currentUser);
 
-        System.out.println(principal.getClass());
+        System.out.println(principal.getClass().getName());
         System.out.println(principal.toString());
 
         return "layouts/home";
