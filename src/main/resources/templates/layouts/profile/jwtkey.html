@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
-    <p th:text=${key}>  --</p>
+    <link  th:replace="fragments/header :: bootstrap" rel="stylesheet" href="">
 </head>
 <body>
+<header th:replace="fragments/header :: header"> </header>
 
+<p th:text=${key}>  --</p>
+
+<footer th:replace="fragments/footer :: footer"> </footer>
 </body>
+
 </html>
