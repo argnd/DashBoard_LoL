@@ -19,11 +19,15 @@ public class JwtUtils {
     private int jwtExpirationMs = 86400000;
 
     public String generateJwtToken(Authentication authentication) {
-
+        StringBuilder sb = new StringBuilder();
         MyUserDetails userPrincipal = (MyUserDetails) authentication.getPrincipal();
-
+        if (authentication.getPrincipal().getClass().getName().equals("org.springframework.security.authentication.UsernamePasswordAuthenticationToken")){
+            sb.append(((MyUserDetails) authentication.getPrincipal()).getUsername());
+        } else { //oauth2token
+            sb.append("noobmaster_420");
+        }
         return Jwts.builder()
-                .setSubject((userPrincipal.getUsername()))
+                .setSubject(sb.toString())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
