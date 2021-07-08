@@ -18,9 +18,10 @@
             </div>
         </div>
         <div class="col-md-9">
-            <p th:text="${choosenOpponent.username}"></p>
+
             <div class="container-fluid">
-                <div class="row">
+                <div class="row" style="width:826px;">
+                    <p th:text="${choosenOpponent.username}"></p>
                     <div class="card ml-4" style="width: 10rem;" th:each="hero: ${choosenOpponent.team.heroes}">
                         <img th:src="${(hero.picture != 'DUMMY') ? hero.picture : 'images/DUMMY.jpg'}"/>
                         <div class="card-body">
@@ -28,13 +29,17 @@
                             <h5 class="card-title" th:text="${hero.id}" >Card title</h5>
                         </div>
                     </div>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
+                    <a th:href="@{/combat-oppponent-validated(id=${choosenOpponent.id})}"style="text-align: center;">Fight</a>
+                    <p th:text="${session.user.username}" ></p>
+                    <div class="row">
+                        <div class="card ml-4" style="width: 10rem;" th:each="hero: ${session.user.team.heroes}">
+                            <img th:src="${(hero.picture != 'DUMMY') ? hero.picture : 'images/DUMMY.jpg'}"/>
+                            <div class="card-body">
+                                <p th:text="${hero.id}"></p>
+                                <h5 class="card-title" th:text="${hero.name}" >Card title</h5>
                 </div>
             </div>
-            <a th:href="@{/combat-oppponent-validated(id=${choosenOpponent.id})}">fight</a>
+
         </div>
     </div>
 </div>
