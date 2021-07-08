@@ -69,7 +69,7 @@ public class ProfilController {
     @PostMapping("/wallp-modify")
     public String changeWallp(@RequestParam("wallpForm")String wallp, HttpSession session) {
         User user = (User) session.getAttribute("user");
-        user.setEmail(wallp);
+        user.setWallpaper(wallp);
         userRepository.save(user);
         return "redirect:/profile";
     }
