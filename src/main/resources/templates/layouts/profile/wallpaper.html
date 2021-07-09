@@ -9,6 +9,10 @@
 <header th:replace="fragments/header :: header"> </header>
 <div class="container">
     <h1 class="text-center">Modifier votre fond d'écran</h1>
+
+
+
+
     <div class="row ">
         <div class="col md-3">
             <div class="card" style="width: 18rem;">
@@ -28,7 +32,25 @@
 
 
             </h2>
+            <input id ="fileupload" type="file" name="fileupload"/>
+            <button id="upload-button" onclick="uploadFile()">Upload</button>
+            <script>
+                async function uploadFile() {
+                    let formData = new FormData();
+                    formData.append("file", fileupload.files[0]);
+                    let response = await fetch('/CARS', {
+                        method: "POST",
+                        body: FormData
+                    });
 
+                    if(response.status == 200){
+                        alert("File successfully uploaded.");
+                    }
+
+
+
+                }
+            </script>
 
             <form action="#" th:action="@{/wallp-modify}"  method="post">
                 <p>Fond d'écran: <input type="text" name="wallpForm" /></p>
