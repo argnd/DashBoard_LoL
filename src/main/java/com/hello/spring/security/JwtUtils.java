@@ -23,7 +23,7 @@ public class JwtUtils {
         MyUserDetails userPrincipal = (MyUserDetails) authentication.getPrincipal();
         if (authentication.getPrincipal().getClass().getName().equals("org.springframework.security.authentication.UsernamePasswordAuthenticationToken")){
             sb.append(((MyUserDetails) authentication.getPrincipal()).getUsername());
-        } else { //oauth2token
+        } else { //oauth2token todo
             sb.append("noobmaster_420");
         }
         return Jwts.builder()
