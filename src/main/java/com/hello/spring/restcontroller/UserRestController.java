@@ -27,22 +27,6 @@ public class UserRestController {
 
     @GetMapping("/api/users")
     public List<User> home() {
-//        Map<String, Object> model = new HashMap<>();
-//        model.put("id", userRepository.getById(1).getId());
-        return userRepository.findAll();
-    }
-
-    @GetMapping("/users")
-    public List<User> users() {
-//        Map<String, Object> model = new HashMap<>();
-//        model.put("id", userRepository.getById(1).getId());
-        return userRepository.findAll();
-    }
-
-    @PostMapping("/users")
-    public List<User> users2(@RequestParam("test")String test) {
-//        Map<String, Object> model = new HashMap<>();
-//        model.put("id", userRepository.getById(1).getId());
         return userRepository.findAll();
     }
 
