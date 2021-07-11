@@ -1,5 +1,6 @@
 package com.hello.spring.service;
 
+import com.hello.spring.dto.MyUserDetails;
 import com.hello.spring.security.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -19,6 +20,11 @@ public class SecurityService {
     public String getKey(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String jwt = jwtUtils.generateJwtToken(auth);
+        return jwt;
+    }
+
+    public String getUserKey(MyUserDetails user){
+        String jwt = jwtUtils.generateJwtTokenFromValidUserDetails(user);
         return jwt;
     }
 
