@@ -1,5 +1,6 @@
 package com.hello.spring.restcontroller;
 
+import com.hello.spring.dto.LoginForm;
 import com.hello.spring.dto.MyUserDetails;
 import com.hello.spring.model.User;
 import com.hello.spring.repository.UserRepository;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4402")
 public class UserRestController {
 
     private final UserRepository userRepository;
@@ -31,10 +32,10 @@ public class UserRestController {
     }
 
     @PostMapping("/loginapi")
-    public String login(@RequestParam("userName")String username,@RequestParam("password")String password) {
+    public String login(@RequestBody LoginForm loginForm) {
         String token =
                 securityService.getUserKey
-                        ((MyUserDetails) myUserDetailsService.tryToLoadUserByUsername(username,password));
+                        ((MyUserDetails) myUserDetailsService.tryToLoadUserByUsername(loginForm.getUserName(),loginForm.getPassword()));
         return token;
     }
 
