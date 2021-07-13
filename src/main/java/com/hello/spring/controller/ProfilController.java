@@ -28,9 +28,6 @@ public class ProfilController {
         this.userRepository = userRepository;
     }
 
-    @Autowired
-
-
     @GetMapping("/profile")
     public String getProfil() {
         return "layouts/profile/profile";

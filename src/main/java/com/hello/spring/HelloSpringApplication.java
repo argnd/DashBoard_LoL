@@ -14,10 +14,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SuppressWarnings("all")
 public class HelloSpringApplication {
 
-    @Autowired
-    PopulateDbService populateDbService;
 
-    public static void main(String[] args) throws Exception {
+
+    public static void main(String[] args) {
         SpringApplication.run(HelloSpringApplication.class, args);
     }
 

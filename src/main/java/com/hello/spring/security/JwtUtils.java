@@ -34,6 +34,22 @@ public class JwtUtils {
                 .compact();
     }
 
+    public String generateJwtTokenFromValidUserDetails(MyUserDetails myUserDetails) {
+        StringBuilder sb = new StringBuilder();
+        if (myUserDetails.getClass().getName().equals("org.springframework.security.authentication.UsernamePasswordAuthenticationToken")){
+            sb.append(myUserDetails.getUsername());
+        } else { //oauth2token todo
+            sb.append("noobmaster_420");
+        }
+        return Jwts.builder()
+                .setSubject(sb.toString())
+                .setIssuedAt(new Date())
+                .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
+                .signWith(SignatureAlgorithm.HS512, jwtSecret)
+                .compact();
+    }
+
+
     public String getUserNameFromJwtToken(String token) {
         return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
     }
