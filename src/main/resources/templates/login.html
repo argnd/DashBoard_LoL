@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
   <title>Login page</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -37,7 +37,10 @@ min-width: 100%;
             </div>
             <button class="btn btn-lg btn-color btn-button" name="Submit" value="Login" type="Submit"
                     th:text="Login" style="color: white"></button>
+
+
           </form>
+        <a th:href="@{/signup}">Sign Up</a>
 
 
 

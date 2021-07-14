@@ -46,8 +46,8 @@ public class HomeController {
 
     @GetMapping("/home")
     public String gethome(HttpSession session, Principal principal, Authentication authentication){
-        User currentUser = populateDbService.getUserByUserName("noobmaster_420");
-//        authentication.getPrincipal();
+        User currentUser = populateDbService.getUserByUserName(principal.getName());
+
         session.setAttribute("user", currentUser);
 
         System.out.println(principal.getClass().getName());
