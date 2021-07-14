@@ -19,8 +19,8 @@ public class FightService {
 
     public User[] pickThreeUser(){
         User[] pickedUser = new User[3];
-        pickedUser[0]= userRepository.getById(2);
-        pickedUser[1]= userRepository.getById(3);
+        pickedUser[0]= userRepository.getById(1);
+        pickedUser[1]= userRepository.getById(5);
         pickedUser[2]= userRepository.getById(4);
         return pickedUser;
     }
