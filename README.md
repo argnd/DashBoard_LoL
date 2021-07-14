@@ -9,6 +9,7 @@ Projet collaboratif :
 https://github.com/erguculu
 https://github.com/Daishi37
 https://github.com/argnd
+https://github.com/dydylan
 
 Technologies mobilisées :
 Spring-boot-starter-web,Spring-boot-starter-data-JPA,Spring-boot-starter-security,Thymeleaf
