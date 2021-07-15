@@ -61,7 +61,7 @@ public class SignupController {
         Heroes.add(heroRepository.findByName("DUMMY"));
         team.setHeroes(Heroes);
         user.setTeam(team);
-        
+
 
          userRepository.save(user);
 
