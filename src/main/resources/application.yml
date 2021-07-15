@@ -20,4 +20,4 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 server:
-  port=${PORT:5000}
+  port=${PORT:8080}
