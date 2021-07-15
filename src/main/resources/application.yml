@@ -14,8 +14,8 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
   datasource:
-    url: jdbc:mysql://${Dashboard:localhost}:3306/Dashboard
-    username: root
-    password: root
+    url: jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11425426
+    username: sql11425426
+    password: sHr3iNt72l
     driver-class-name: com.mysql.cj.jdbc.Driver
 
