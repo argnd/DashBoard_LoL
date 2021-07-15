@@ -1,1 +1,1 @@
-web: java -jar build/libs/DashBoard_LOL-0.0.1-SNAPSHOT.jar
+web: java -jar build/libs/DashBoard_LOL-0.0.1-SNAPSHOT.jar --port 8080
