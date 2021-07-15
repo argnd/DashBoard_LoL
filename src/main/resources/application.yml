@@ -18,3 +18,5 @@ spring:
     username: sql11425426
     password: sHr3iNt72l
     driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port : ${PORT}
