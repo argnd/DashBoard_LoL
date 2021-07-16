@@ -20,11 +20,11 @@
         <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div>
     </form>
 
-    <h2 class="sr-only">Login Form
-        <button class="btn btn-primary btn-block" type="submit">
-            <a href="/signup">Sign Up</a>
-        </button>
-    </h2>
+    <form method="get" action="#" th:action="@{/signup}">
+    <h2 class="sr-only">Sub Form </h2>
+        <button class="btn btn-primary btn-block" type="submit"></button>
+    </form>
+    
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
