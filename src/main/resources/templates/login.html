@@ -18,16 +18,7 @@
         <div class="form-group"><input class="form-control" type="username" name="username" placeholder="Username"></div>
         <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
         <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div>
-    </form>
-
-    <form method="get" action="#" th:action="@{/signup}">
-        <h2 class="sr-only">Sub Form </h2>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <button class="btn btn-primary btn-block" type="submit"></button>
+        <a th:href="@{/signup}">signup</a>
     </form>
 
 </div>
