@@ -1,0 +1,64 @@
+body {
+    height: 1000px;
+    background-image: url("../images/wallhome.jpg");
+    background-size: cover;
+    position: relative;
+}
+.nav-link{
+    font-family: cursive;
+    font-size: xx-large;
+    color: red;
+    text-align: center;
+}
+
+
+
+h1{
+
+    color:white;
+}
+
+button {
+    display: inline-block;
+    background-color: black;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 300px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+button:hover {
+    background-color: whitesmoke;
+}
+button:hover span {
+    padding-right: 25px;
+}
+button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.links{
+    text-align: center;
+}
+

@@ -4,22 +4,23 @@
   <title>Bienvenue</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link  th:replace="fragments/header :: bootstrap" rel="stylesheet" href="">
+  <link rel="stylesheet" href="css/welcome.css">
 </head>
 <body>
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <h2 class="h1-responsive font-weight-bold text-center my-4">Bienvenue sur LoL DashBoard</h2>
-      <ul>
-        <li class="nav-item active">
-            <a class="nav-link" th:href="@{/login}">login</a>
-        </li>
+    <div >
+      <h1 class="h1-responsive font-weight-bold text-center my-4">Bienvenue sur LoL DashBoard</h1>
 
-        <li class="nav-item active">
-          <a class="nav-link" th:href="@{/signup}">Sign Up</a>
-        </li>
+        <div class="links">
+          <button> <a class="nav-link" th:href="@{/login}"><span>Log in</span></a> </button>
 
-      </ul>
+
+
+          <button><a class="nav-link" th:href="@{/signup}"><span>Sign Up</span></a></button>
+    </div>
+
+
     </div>
   </div>
 </div>
