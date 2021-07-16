@@ -73,3 +73,6 @@
 a{
     color:#ffffff;
 }
+.btn-primary.disabled, .btn-primary:disabled{
+    opacity: initial;
+}
