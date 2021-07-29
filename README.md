@@ -1,7 +1,8 @@
 # DashBoard_LoL
+
 Projet de création d'un site de "jeu" basé sur League Of Legends.
-Notre utilisateur poura "adopter" 5 champions de LoL pour se former une équipe.
-Il pourra ensuite comparer la valeur de charme ou de force de son équipe avec celle d'un autre utilisateur.
+Notre utilisateur pourra "adopter" 5 champions de LoL pour se former une équipe.
+Il pourra ensuite comparer la valeur de charme de son équipe avec celle d'un autre utilisateur.
 
 Le site proposera également de voir l'historique des parties d'un joueur de League Of Legends (dashboard)
 
